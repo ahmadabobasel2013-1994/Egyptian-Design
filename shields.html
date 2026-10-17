@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>قسم الدروع وتذكارات التخرج | المصري ديزاين</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Cairo', sans-serif; }
+        body { background-color: #f8fafc; color: #1e293b; }
+        .container { width: 90%; max-width: 1200px; margin: 0 auto; }
+        
+        header { background: #ffffff; box-shadow: 0 4px 20px rgba(0,0,0,0.05); padding: 18px 0; }
+        .header-container { display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-size: 24px; font-weight: 900; color: #0f172a; }
+        .back-btn { text-decoration: none; color: #0284c7; font-weight: 700; }
+
+        .page-header { padding: 40px 0 10px; text-align: center; }
+        .page-header h1 { font-size: 36px; color: #0f172a; font-weight: 900; }
+        .page-header p { color: #64748b; font-size: 16px; margin-top: 5px; }
+
+        /* أزرار الفرز الديناميكية */
+        .filter-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin: 25px 0 35px;
+            flex-wrap: wrap;
+        }
+        .filter-btn {
+            background: #e2e8f0;
+            color: #334155;
+            border: none;
+            padding: 10px 22px;
+            border-radius: 30px;
+            font-weight: 700;
+            font-size: 15px;
+            cursor: pointer;
+            transition: 0.3s ease;
+        }
+        .filter-btn.active, .filter-btn:hover {
+            background: #0284c7;
+            color: white;
+        }
+
+        .grid-cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 30px; padding-bottom: 60px; }
+        .card { 
+            background: white; border-radius: 20px; overflow: hidden; border: 1px solid #e2e8f0; 
+            box-shadow: 0 10px 25px rgba(0,0,0,0.04); display: flex; flex-direction: column; 
+            justify-content: space-between; transition: all 0.4s ease;
+        }
+        .card.hide { display: none; }
+        
+        .card-img { width: 100%; height: 250px; object-fit: cover; }
+        .card-content { padding: 20px; text-align: center; }
+        .card h3 { font-size: 19px; color: #0f172a; margin-bottom: 8px; font-weight: 700; }
+        .card-size { color: #0284c7; font-weight: 700; font-size: 15px; margin-bottom: 15px; display: block; }
+        
+        .btn-inquire {
+            background: #25d366; color: white; padding: 12px; border-radius: 12px;
+            text-align: center; font-weight: 700; text-decoration: none; display: block; border: none; cursor: pointer; width: 100%;
+        }
+        .btn-inquire:hover { background: #1eb854; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container header-container">
+            <div class="logo">المصري ديزاين</div>
+            <a href="index.html" class="back-btn">← العودة للرئيسية</a>
+        </div>
+    </header>
+
+    <div class="container page-header">
+        <h1>قسم الدروع وتذكارات التخرج</h1>
+        <p>جودة وتفاصيل تصنع الفرق | اخشاب، كريستال، وأكريليك بمختلف المقاسات (سم)</p>
+        
+        <!-- أزرار التجميع والتصنيف الديناميكية -->
+        <div class="filter-buttons">
+            <button class="filter-btn active" onclick="filterShields('all')">الكل</button>
+            <button class="filter-btn" onclick="filterShields('square')">الدروع المربعة / الكلاسيكية</button>
+            <button class="filter-btn" onclick="filterShields('round')">الدروع الدائرية</button>
+            <button class="filter-btn" onclick="filterShields('shapes')">الأشكال والغريبة (كريستال وأكريليك)</button>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="grid-cards">
+
+            <!-- الفئة 1: المربعة / الكلاسيكية -->
+            <div class="card square">
+                <img src="قسم الدروع/5947300129297601707_121.jpg" alt="التخرج قياس1" class="card-img">
+                <div class="card-content">
+                    <h3>درع تخرج مربع (قياس 1)</h3>
+                    <span class="card-size">المقاس: 13 × 19 سم</span>
+                    <button onclick="inquire('درع تخرج قياس 1 (13×19 سم)')" class="btn-inquire">تواصل للاستفسار</button>
+                </div>
+            </div>
+
+            <div class="card square">
+                <img src="قسم الدروع/5947300129297601708_121.jpg" alt="التخرج قياس2" class="card-img">
+                <div class="card-content">
+                    <h3>درع تخرج مربع (قياس 2)</h3>
+                    <span class="card-size">المقاس: 16 × 21 سم</span>
+                    <button onclick="inquire('درع تخرج قياس 2 (16×21 سم)')" class="btn-inquire">تواصل للاستفسار</button>
+                </div>
+            </div>
+
+            <div class="card square">
+                <img src="قسم الدروع/5947300129297601709_121.jpg" alt="التخرج قياس3" class="card-img">
+                <div class="card-content">
+                    <h3>درع تخرج مربع (قياس 3)</h3>
+                    <span class="card-size">المقاس: 18 × 24 سم</span>
+                    <button onclick="inquire('درع تخرج قياس 3 (18×24 سم)')" class="btn-inquire">تواصل للاستفسار</button>
+                </div>
+            </div>
+
+            <div class="card square">
+                <img src="قسم الدروع/5947300129297601710_121.jpg" alt="التخرج قياس4" class="card-img">
+                <div class="card-content">
+                    <h3>درع تخرج مربع (قياس 4)</h3>
+                    <span class="card-size">المقاس: 22 × 30 سم</span>
+                    <button onclick="inquire('درع تخرج قياس 4 (22×30 سم)')" class="btn-inquire">تواصل للاستفسار</button>
+                </div>
+            </div>
+
+            <!-- الفئة 2: الدائرية -->
+            <div class="card round">
+                <img src="قسم الدروع/5947300129297601713_121.jpg" alt="التخرج دائري مميز" class="card-img">
+                <div class="card-content">
+                    <h3>درع تخرج دائري مميز</h3>
+                    <span class="card-size">المقاس: 20 × 25 سم</span>
+                    <button onclick="inquire('درع تخرج دائري مميز (20×25 سم)')" class="btn-inquire">تواصل للاستفسار</button>
+                </div>
+            </div>
+
+            <div class="card round">
+                <img src="قسم الدروع/5947300129297601716_121.jpg" alt="التخرج دائري مميز مع صندوق" class="card-img">
+                <div class="card-content">
+                    <h3>درع تخرج دائري مميز (صندوق 30×30)</h3>
+                    <span class="card-size">المقاس: 20 × 25 سم</span>
+                    <button onclick="inquire('درع تخرج دائري مميز صندوق 30×30 (20×25 سم)')" class="btn-inquire">تواصل للاستفسار</button>
+                </div>
+            </div>
+
+            <!-- الفئة 3: الأشكال والكريستال والأكريليك -->
+            <div class="card shapes">
+                <img src="قسم الدروع/5947300129297601711_121.jpg" alt="التخرج اكريليك" class="card-img">
+                <div class="card-content">
+                    <h3>درع تخرج اكريليك</h3>
+                    <span class="card-size">المقاس: 15 × 22 سم</span>
+                    <button onclick="inquire('درع تخرج اكريليك (15×22 سم)')" class="btn-inquire">تواصل للاستفسار</button>
+                </div>
+            </div>
+
+            <div class="card shapes">
+                <img src="قسم الدروع/5947300129297601712_121.jpg" alt="تقدير كريستال بيضاوي" class="card-img">
+                <div class="card-content">
+                    <h3>درع تقدير كريستال (بيضاوي) فاخر</h3>
+                    <span class="card-size">المقاس: 12 × 20 سم</span>
+                    <button onclick="inquire('درع تقدير كريستال بيضاوي فاخر (12×20 سم)')" class="btn-inquire">تواصل للاستفسار</button>
+                </div>
+            </div>
+
+            <div class="card shapes">
+                <img src="قسم الدروع/5947300129297601714_121.jpg" alt="التخرج اكريليك فاخر" class="card-img">
+                <div class="card-content">
+                    <h3>درع تخرج اكريليك فاخر</h3>
+                    <span class="card-size">المقاس: 15 × 25 سم</span>
+                    <button onclick="inquire('درع تخرج اكريليك فاخر (15×25 سم)')" class="btn-inquire">تواصل للاستفسار</button>
+                </div>
+            </div>
+
+            <div class="card shapes">
+                <img src="قسم الدروع/5947300129297601715_119.jpg" alt="تقدير كريستال شكل فاخر" class="card-img">
+                <div class="card-content">
+                    <h3>درع تقدير كريستال (شكل مخصص) فاخر</h3>
+                    <span class="card-size">المقاس: 12 × 20 سم</span>
+                    <button onclick="inquire('درع تقدير كريستال شكل فاخر (12×20 سم)')" class="btn-inquire">تواصل للاستفسار</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- كود الجافاسكريبت الديناميكي للتصفية وتوجيه الواتساب -->
+    <script>
+        function filterShields(category) {
+            const cards = document.querySelectorAll('.card');
+            const buttons = document.querySelectorAll('.filter-btn');
+
+            buttons.forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+
+            cards.forEach(card => {
+                if (category === 'all' || card.classList.contains(category)) {
+                    card.classList.remove('hide');
+                } else {
+                    card.classList.add('hide');
+                }
+            });
+        }
+
+        function inquire(itemName) {
+            const phone = "963969892591";
+            const message = `السلام عليكم ورحمة الله وبركاته، أريد الاستفسار عن ${itemName}`;
+            const whatsappURL = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
+            window.open(whatsappURL, '_blank');
+        }
+    </script>
+
+</body>
+</html>
