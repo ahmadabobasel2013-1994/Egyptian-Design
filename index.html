@@ -5,75 +5,91 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>المصري ديزاين | للطباعة والتصميم والإعلان</title>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Cairo', sans-serif; scroll-behavior: smooth; }
-        body { background-color: #f8fafc; color: #1e293b; line-height: 1.6; }
-        .container { width: 90%; max-width: 1200px; margin: 0 auto; }
+        body { background-color: #f8fafc; color: #1e293b; line-height: 1.6; overflow-x: hidden; }
+        .container { width: min(92%, 1200px); margin: 0 auto; }
         
-        header { background: #ffffff; box-shadow: 0 4px 20px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 1000; }
-        .header-container { display: flex; justify-content: space-between; align-items: center; padding: 18px 0; }
-        .logo { font-size: 24px; font-weight: 900; color: #0f172a; }
+        header { background: #ffffff; box-shadow: 0 4px 20px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 1000; width: 100%; }
+        .header-container { display: flex; justify-content: space-between; align-items: center; padding: 15px 0; flex-wrap: wrap; gap: 10px; }
+        .logo { font-size: clamp(20px, 2.5vw, 24px); font-weight: 900; color: #0f172a; display: flex; align-items: center; gap: 10px; }
+        .logo i { color: #0284c7; }
         
-        nav ul { display: flex; list-style: none; gap: 18px; flex-wrap: wrap; }
-        nav ul li a { text-decoration: none; color: #475569; font-weight: 700; font-size: 14px; transition: 0.3s; }
-        nav ul li a:hover { color: #0284c7; }
+        nav ul { display: flex; list-style: none; gap: 8px; flex-wrap: wrap; justify-content: center; }
+        nav ul li a { text-decoration: none; color: #475569; font-weight: 700; font-size: clamp(12px, 1.2vw, 14px); transition: 0.3s; padding: 6px 12px; border-radius: 8px; display: flex; align-items: center; gap: 6px; }
+        nav ul li a:hover { color: #0284c7; background: #f1f5f9; }
 
         .hero {
-            position: relative; padding: 70px 0; text-align: center; color: white;
-            border-bottom-left-radius: 40px; border-bottom-right-radius: 40px; overflow: hidden; background: #0f172a;
+            position: relative; padding: clamp(30px, 5vw, 60px) 0; text-align: center; color: white;
+            border-bottom-left-radius: 30px; border-bottom-right-radius: 30px; overflow: hidden; background: #0f172a;
         }
-        .hero h1 { font-size: 38px; font-weight: 900; margin-bottom: 20px; z-index: 2; position: relative; }
+        .hero h1 { font-size: clamp(22px, 4vw, 36px); font-weight: 900; margin-bottom: 20px; z-index: 2; position: relative; padding: 0 10px; }
         
         .video-container {
-            position: relative; max-width: 750px; margin: 0 auto; border-radius: 20px; overflow: hidden;
+            position: relative; width: 100%; max-width: 750px; margin: 0 auto; border-radius: 16px; overflow: hidden;
             box-shadow: 0 15px 30px rgba(0,0,0,0.4); border: 3px solid rgba(255,255,255,0.2); z-index: 2;
         }
-        .video-container video { width: 100%; height: auto; display: block; }
+        .video-container video { width: 100%; height: auto; display: block; max-height: 450px; object-fit: cover; }
 
-        .sections-wrapper { padding: 70px 0; }
-        .section-title { text-align: center; font-size: 34px; font-weight: 900; margin-bottom: 40px; color: #0f172a; }
+        .sections-wrapper { padding: clamp(35px, 5vw, 60px) 0; }
+        .section-title { text-align: center; font-size: clamp(24px, 3.5vw, 34px); font-weight: 900; margin-bottom: 35px; color: #0f172a; }
         
-        .main-departments { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
-        .dept-card {
-            background: white; border-radius: 24px; overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.06); border: 2px solid #e2e8f0;
-            transition: 0.3s ease; text-decoration: none; color: inherit; display: block;
+        .main-departments { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
+            gap: 25px; 
         }
-        .dept-card:hover { transform: translateY(-10px); border-color: #0284c7; box-shadow: 0 20px 40px rgba(2, 132, 199, 0.15); }
-        .dept-img { width: 100%; height: 240px; object-fit: cover; }
-        .dept-info { padding: 25px; text-align: center; }
-        .dept-info h3 { font-size: 22px; font-weight: 900; color: #0f172a; margin-bottom: 10px; }
-        .dept-info p { color: #64748b; font-size: 14px; margin-bottom: 20px; }
+        .dept-card {
+            background: white; border-radius: 20px; overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05); border: 2px solid #e2e8f0;
+            transition: 0.3s ease; text-decoration: none; color: inherit; display: flex; flex-direction: column; height: 100%;
+        }
+        .dept-card:hover { transform: translateY(-8px); border-color: #0284c7; box-shadow: 0 15px 35px rgba(2, 132, 199, 0.12); }
+        .dept-img { width: 100%; height: clamp(180px, 20vw, 230px); object-fit: cover; }
+        .dept-info { padding: 20px; text-align: center; display: flex; flex-direction: column; flex-grow: 1; justify-content: space-between; }
+        .dept-info h3 { font-size: clamp(17px, 2vw, 20px); font-weight: 900; color: #0f172a; margin-bottom: 8px; }
+        .dept-info p { color: #64748b; font-size: clamp(12px, 1.3vw, 14px); margin-bottom: 15px; }
         .btn-enter {
-            display: inline-block; background: #0284c7; color: white; padding: 10px 25px;
-            border-radius: 50px; font-weight: 700; transition: 0.3s;
+            display: inline-flex; align-items: center; justify-content: center; gap: 8px; background: #0284c7; color: white; padding: 10px 20px;
+            border-radius: 50px; font-weight: 700; transition: 0.3s; font-size: 14px;
         }
         .dept-card:hover .btn-enter { background: #0369a1; }
 
-        footer { background: #0f172a; color: white; padding: 50px 0 25px; margin-top: 50px; }
-        .footer-flex { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px; }
-        .social-links { display: flex; gap: 15px; }
+        footer { background: #0f172a; color: white; padding: 40px 0 20px; margin-top: 40px; }
+        .footer-flex { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px; text-align: center; }
+        .footer-flex > div { margin: 0 auto; }
+        .social-links { display: flex; gap: 15px; justify-content: center; }
         .social-icon-btn {
-            width: 48px; height: 48px; border-radius: 50%; background: rgba(255,255,255,0.1);
-            display: flex; align-items: center; justify-content: center; transition: 0.3s;
+            width: 46px; height: 46px; border-radius: 50%; background: rgba(255,255,255,0.1);
+            display: flex; align-items: center; justify-content: center; transition: 0.3s; color: white; text-decoration: none; font-size: 20px;
         }
         .social-icon-btn:hover { background: #0284c7; transform: translateY(-3px); }
-        .social-icon-btn svg { width: 24px; height: 24px; fill: white; }
+
+        @media (max-width: 768px) {
+            .header-container { flex-direction: column; text-align: center; }
+            nav ul { justify-content: center; gap: 6px; margin-top: 10px; }
+        }
     </style>
 </head>
 <body>
 
     <header>
         <div class="container header-container">
-            <div class="logo">المصري ديزاين</div>
+            <div class="logo">
+                <i class="fa-solid fa-print"></i>
+                <span>المصري ديزاين</span>
+            </div>
             <nav>
                 <ul>
-                    <li><a href="index.html">الرئيسية</a></li>
-                    <li><a href="print.html">الطباعة والفليكس</a></li>
-                    <li><a href="alucobond.html">الألكبوند</a></li>
-                    <li><a href="shields.html">الدروع والتقدير</a></li>
-                    <li><a href="flags.html">الأعلام والرايات</a></li>
-                    <li><a href="engagement.html">ستاندات الخطوبة</a></li>
+                    <li><a href="index.html"><i class="fa-solid fa-house"></i> الرئيسية</a></li>
+                    <li><a href="print.html"><i class="fa-solid fa-scroll"></i> الطباعة والفليكس</a></li>
+                    <li><a href="alucobond.html"><i class="fa-solid fa-building"></i> الألكبوند</a></li>
+                    <li><a href="shields.html"><i class="fa-solid fa-award"></i> الدروع والتقدير</a></li>
+                    <li><a href="flags.html"><i class="fa-solid fa-flag"></i> الأعلام والرايات</a></li>
+                    <li><a href="engagement.html"><i class="fa-solid fa-heart"></i> ستاندات الخطوبة</a></li>
+                    <li><a href="laser.html"><i class="fa-solid fa-bolt"></i> قسم الليزر</a></li>
+                    <li><a href="sublimation.html"><i class="fa-solid fa-shirt"></i> الطباعة الحرارية</a></li>
                 </ul>
             </nav>
         </div>
@@ -82,12 +98,12 @@
     <section class="hero">
         <div class="container">
             <h1>المصري ديزاين للطباعة والتصميم والإعلان</h1>
-            <!--<div class="video-container">
+            <div class="video-container">
                 <video controls autoplay loop muted poster="قسم الطباعة/5947300129297601698_119.jpg">
                     <source src="intro.mp4" type="video/mp4">
                     متصفحك لا يدعم تشغيل الفيديو.
                 </video>
-            </div>-->
+            </div>
         </div>
     </section>
 
@@ -99,46 +115,77 @@
                 <a href="print.html" class="dept-card">
                     <img src="قسم الطباعة/5947300129297601698_119.jpg" alt="قسم الطباعة والفليكس" class="dept-img">
                     <div class="dept-info">
-                        <h3>قسم الطباعة والفليكس</h3>
-                        <p>استعراض كافة أعمال الطباعة، الفليكس، والفينيل.</p>
-                        <span class="btn-enter">دخول القسم ←</span>
+                        <div>
+                            <h3>قسم الطباعة والفليكس</h3>
+                            <p>استعراض كافة أعمال الطباعة، الفليكس، والفينيل.</p>
+                        </div>
+                        <span class="btn-enter">دخول القسم <i class="fa-solid fa-arrow-left"></i></span>
                     </div>
                 </a>
 
                 <a href="alucobond.html" class="dept-card">
                     <img src="قسم الالكبوند/5947300129297601686_119.jpg" alt="قسم الألكبوند" class="dept-img">
                     <div class="dept-info">
-                        <h3>قسم الألكبوند</h3>
-                        <p>تصاميم واجهات الأكبوند للمحلات والشركات والكليات.</p>
-                        <span class="btn-enter">دخول القسم ←</span>
+                        <div>
+                            <h3>قسم الألكبوند</h3>
+                            <p>تصاميم واجهات الأكبوند للمحلات والشركات والكليات.</p>
+                        </div>
+                        <span class="btn-enter">دخول القسم <i class="fa-solid fa-arrow-left"></i></span>
                     </div>
                 </a>
 
                 <a href="shields.html" class="dept-card">
                     <img src="قسم الدروع/5947300129297601706_119.jpg" alt="قسم الدروع" class="dept-img">
                     <div class="dept-info">
-                        <h3>قسم الدروع وتذكارات التخرج</h3>
-                        <p>دروع التخرج والتقدير الكريستالية والأكريليك.</p>
-                        <span class="btn-enter">دخول القسم ←</span>
+                        <div>
+                            <h3>قسم الدروع وتذكارات التخرج</h3>
+                            <p>دروع التخرج والتقدير الكريستالية والأكريليك.</p>
+                        </div>
+                        <span class="btn-enter">دخول القسم <i class="fa-solid fa-arrow-left"></i></span>
                     </div>
                 </a>
 
                 <a href="flags.html" class="dept-card">
                     <img src="قسم الأعلام/5953845784010756946_119.jpg" alt="قسم الأعلام" class="dept-img">
                     <div class="dept-info">
-                        <h3>قسم الأعلام والرايات</h3>
-                        <p>الأعلام المكتبية، أعلام الشوارع، والأعلام الكبيرة.</p>
-                        <span class="btn-enter">دخول القسم ←</span>
+                        <div>
+                            <h3>قسم الأعلام والرايات</h3>
+                            <p>الأعلام المكتبية، أعلام الشوارع، والأعلام الكبيرة.</p>
+                        </div>
+                        <span class="btn-enter">دخول القسم <i class="fa-solid fa-arrow-left"></i></span>
                     </div>
                 </a>
 
-                <!-- القسم الجديد: دروع وستاندات الخطوبة -->
                 <a href="engagement.html" class="dept-card">
                     <img src="قسم الدروع (خطوبة)/5953845784010756965_119.jpg" alt="قسم دروع وستاندات الخطوبة" class="dept-img">
                     <div class="dept-info">
-                        <h3>قسم دروع وستاندات الخطوبة</h3>
-                        <p>أرقى تصاميم ستاندات وتذكارات الخطوبة والمناسبات السعيدة.</p>
-                        <span class="btn-enter">دخول القسم ←</span>
+                        <div>
+                            <h3>قسم دروع وستاندات الخطوبة</h3>
+                            <p>أرقى تصاميم ستاندات وتذكارات الخطوبة والمناسبات.</p>
+                        </div>
+                        <span class="btn-enter">دخول القسم <i class="fa-solid fa-arrow-left"></i></span>
+                    </div>
+                </a>
+
+                <a href="laser.html" class="dept-card">
+                    <img src="قسم الليزر/5956329731101757553_121.jpg" alt="قسم الليزر" class="dept-img">
+                    <div class="dept-info">
+                        <div>
+                            <h3>قسم القص والحفر بالليزر</h3>
+                            <p>تصاميم وحفر الدروع واللوحات المضيئة على الخشب والاكريليك.</p>
+                        </div>
+                        <span class="btn-enter">دخول القسم <i class="fa-solid fa-arrow-left"></i></span>
+                    </div>
+                </a>
+
+                <a href="sublimation.html" class="dept-card">
+                    <img src="قسم الطباعة الحرارية/5958581530915442738_121.jpg" alt="قسم الطباعة الحرارية" class="dept-img">
+                    <div class="dept-info">
+                        <div>
+                            <h3>قسم الطباعة الحرارية</h3>
+                            <p>طباعة على التيشيرتات، الأكواب، الطواقي، والمستلزمات.</p>
+                        </div>
+                        <span class="btn-enter">دخول القسم <i class="fa-solid fa-arrow-left"></i></span>
                     </div>
                 </a>
 
@@ -153,15 +200,9 @@
                 <p>سوريا، حلب | هاتف: +963 969 892 591</p>
             </div>
             <div class="social-links">
-                <a href="https://www.facebook.com/share/1NCo6qByiN/" target="_blank" class="social-icon-btn">
-                    <svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
-                </a>
-                <a href="https://t.me/Masryde" target="_blank" class="social-icon-btn">
-                    <svg viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12s5.37 12 12 12 12-5.37 12-12S18.63 0 12 0zm5.562 8.161c-.18 1.897-.962 6.502-1.359 8.627-.168.9-.5 1.201-.82 1.23-.697.064-1.226-.461-1.901-.903-1.056-.692-1.653-1.123-2.678-1.799-1.185-.781-.417-1.21.258-1.911.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.244-1.349-.374-1.297-.789.027-.216.324-.437.893-.663 3.498-1.524 5.831-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635.099-.002.321.023.465.141.119.098.152.228.166.321.015.093.032.308.017.472z"/></svg>
-                </a>
-                <a href="https://wa.me/963969892591" target="_blank" class="social-icon-btn">
-                    <svg viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
-                </a>
+                <a href="https://www.facebook.com/share/1NCo6qByiN/" target="_blank" class="social-icon-btn" title="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="https://t.me/Masryde" target="_blank" class="social-icon-btn" title="Telegram"><i class="fa-brands fa-telegram"></i></a>
+                <a href="https://wa.me/963969892591" target="_blank" class="social-icon-btn" title="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
             </div>
         </div>
     </footer>

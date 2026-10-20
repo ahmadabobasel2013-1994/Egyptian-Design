@@ -5,29 +5,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>قسم دروع وستاندات الخطوبة | المصري ديزاين</title>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Cairo', sans-serif; }
-        body { background-color: #f8fafc; color: #1e293b; }
-        .container { width: 90%; max-width: 1200px; margin: 0 auto; }
+        body { background-color: #f8fafc; color: #1e293b; overflow-x: hidden; }
+        .container { width: min(92%, 1200px); margin: 0 auto; }
         
-        header { background: #ffffff; box-shadow: 0 4px 20px rgba(0,0,0,0.05); padding: 18px 0; }
+        header { background: #ffffff; box-shadow: 0 4px 20px rgba(0,0,0,0.05); padding: 15px 0; }
         .header-container { display: flex; justify-content: space-between; align-items: center; }
-        .logo { font-size: 24px; font-weight: 900; color: #0f172a; }
-        .back-btn { text-decoration: none; color: #0284c7; font-weight: 700; }
+        .logo { font-size: clamp(20px, 2.5vw, 24px); font-weight: 900; color: #0f172a; display: flex; align-items: center; gap: 8px; }
+        .logo i { color: #0284c7; }
+        .back-btn { text-decoration: none; color: #0284c7; font-weight: 700; font-size: 14px; display: flex; align-items: center; gap: 6px; }
 
-        .page-header { padding: 40px 0 20px; text-align: center; }
-        .page-header h1 { font-size: 36px; color: #0f172a; font-weight: 900; }
-        .page-header p { color: #64748b; font-size: 16px; margin-top: 5px; }
+        .page-header { padding: 35px 0 20px; text-align: center; }
+        .page-header h1 { font-size: clamp(24px, 3.5vw, 36px); color: #0f172a; font-weight: 900; }
+        .page-header p { color: #64748b; font-size: 14px; margin-top: 5px; }
 
-        .grid-cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 30px; padding-bottom: 60px; margin-top: 30px; }
-        .card { background: white; border-radius: 20px; overflow: hidden; border: 1px solid #e2e8f0; box-shadow: 0 10px 25px rgba(0,0,0,0.04); display: flex; flex-direction: column; justify-content: space-between; }
-        .card-img { width: 100%; height: 260px; object-fit: cover; }
-        .card-content { padding: 20px; text-align: center; }
-        .card h3 { font-size: 19px; color: #0f172a; margin-bottom: 15px; font-weight: 700; }
+        .grid-cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 25px; padding-bottom: 60px; margin-top: 20px; }
+        .card { 
+            background: white; border-radius: 20px; overflow: hidden; border: 1px solid #e2e8f0; 
+            box-shadow: 0 10px 25px rgba(0,0,0,0.04); display: flex; flex-direction: column; justify-content: space-between; 
+            transition: 0.3s ease;
+        }
+        .card:hover { transform: translateY(-5px); box-shadow: 0 15px 30px rgba(2, 132, 199, 0.1); }
+        .card-img { width: 100%; height: clamp(180px, 20vw, 230px); object-fit: cover; }
+        .card-content { padding: 20px; text-align: center; display: flex; flex-direction: column; justify-content: space-between; flex-grow: 1; }
+        .card h3 { font-size: clamp(16px, 1.8vw, 19px); color: #0f172a; margin-bottom: 15px; font-weight: 700; }
         
         .btn-inquire {
-            background: #25d366; color: white; padding: 12px; border-radius: 12px;
-            text-align: center; font-weight: 700; text-decoration: none; display: block; border: none; cursor: pointer; width: 100%;
+            background: #25d366; color: white; padding: 10px; border-radius: 12px;
+            text-align: center; font-weight: 700; text-decoration: none; display: flex; align-items: center; justify-content: center; gap: 8px; border: none; cursor: pointer; width: 100%; font-size: 14px; transition: 0.3s;
         }
         .btn-inquire:hover { background: #1eb854; }
     </style>
@@ -36,8 +43,8 @@
 
     <header>
         <div class="container header-container">
-            <div class="logo">المصري ديزاين</div>
-            <a href="index.html" class="back-btn">← العودة للرئيسية</a>
+            <div class="logo"><i class="fa-solid fa-heart"></i> <span>المصري ديزاين</span></div>
+            <a href="index.html" class="back-btn"><i class="fa-solid fa-arrow-right"></i> العودة للرئيسية</a>
         </div>
     </header>
 
@@ -49,48 +56,43 @@
     <div class="container">
         <div class="grid-cards">
 
-            <!-- نموذج 1 -->
             <div class="card">
-                <img src="قسم الدروع (خطوبة)/5953845784010756962_119.jpg" alt="ستاند خطوبة نموذج 1" class="card-img">
+                <img src="قسم الدروع (خطوبة)/5953845784010756962_119.jpg" alt="ستاند خطوبة 1" class="card-img">
                 <div class="card-content">
                     <h3>درع وستاند خطوبة (نموذج 1)</h3>
-                    <button onclick="inquire('درع وستاند خطوبة - نموذج 1')" class="btn-inquire">تواصل للاستفسار</button>
+                    <button onclick="inquire('درع وستاند خطوبة - نموذج 1')" class="btn-inquire"><i class="fa-brands fa-whatsapp"></i> تواصل للاستفسار</button>
                 </div>
             </div>
 
-            <!-- نموذج 2 -->
             <div class="card">
-                <img src="قسم الدروع (خطوبة)/5953845784010756963_119.jpg" alt="ستاند خطوبة نموذج 2" class="card-img">
+                <img src="قسم الدروع (خطوبة)/5953845784010756963_119.jpg" alt="ستاند خطوبة 2" class="card-img">
                 <div class="card-content">
                     <h3>درع وستاند خطوبة (نموذج 2)</h3>
-                    <button onclick="inquire('درع وستاند خطوبة - نموذج 2')" class="btn-inquire">تواصل للاستفسار</button>
+                    <button onclick="inquire('درع وستاند خطوبة - نموذج 2')" class="btn-inquire"><i class="fa-brands fa-whatsapp"></i> تواصل للاستفسار</button>
                 </div>
             </div>
 
-            <!-- نموذج 3 -->
             <div class="card">
-                <img src="قسم الدروع (خطوبة)/5953845784010756964_119.jpg" alt="ستاند خطوبة نموذج 3" class="card-img">
+                <img src="قسم الدروع (خطوبة)/5953845784010756964_119.jpg" alt="ستاند خطوبة 3" class="card-img">
                 <div class="card-content">
                     <h3>درع وستاند خطوبة (نموذج 3)</h3>
-                    <button onclick="inquire('درع وستاند خطوبة - نموذج 3')" class="btn-inquire">تواصل للاستفسار</button>
+                    <button onclick="inquire('درع وستاند خطوبة - نموذج 3')" class="btn-inquire"><i class="fa-brands fa-whatsapp"></i> تواصل للاستفسار</button>
                 </div>
             </div>
 
-            <!-- نموذج 4 -->
             <div class="card">
-                <img src="قسم الدروع (خطوبة)/5953845784010756966_119.jpg" alt="ستاند خطوبة نموذج 4" class="card-img">
+                <img src="قسم الدروع (خطوبة)/5953845784010756966_119.jpg" alt="ستاند خطوبة 4" class="card-img">
                 <div class="card-content">
                     <h3>درع وستاند خطوبة (نموذج 4)</h3>
-                    <button onclick="inquire('درع وستاند خطوبة - نموذج 4')" class="btn-inquire">تواصل للاستفسار</button>
+                    <button onclick="inquire('درع وستاند خطوبة - نموذج 4')" class="btn-inquire"><i class="fa-brands fa-whatsapp"></i> تواصل للاستفسار</button>
                 </div>
             </div>
 
-            <!-- نموذج 5 -->
             <div class="card">
-                <img src="قسم الدروع (خطوبة)/5953845784010756967_119.jpg" alt="ستاند خطوبة نموذج 5" class="card-img">
+                <img src="قسم الدروع (خطوبة)/5953845784010756967_119.jpg" alt="ستاند خطوبة 5" class="card-img">
                 <div class="card-content">
                     <h3>درع وستاند خطوبة (نموذج 5)</h3>
-                    <button onclick="inquire('درع وستاند خطوبة - نموذج 5')" class="btn-inquire">تواصل للاستفسار</button>
+                    <button onclick="inquire('درع وستاند خطوبة - نموذج 5')" class="btn-inquire"><i class="fa-brands fa-whatsapp"></i> تواصل للاستفسار</button>
                 </div>
             </div>
 
@@ -101,8 +103,7 @@
         function inquire(itemName) {
             const phone = "963969892591";
             const message = `السلام عليكم ورحمة الله وبركاته، أريد الاستفسار عن ${itemName}`;
-            const whatsappURL = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
-            window.open(whatsappURL, '_blank');
+            window.open(`https://wa.me/${phone}?text=${encodeURIComponent(message)}`, '_blank');
         }
     </script>
 
